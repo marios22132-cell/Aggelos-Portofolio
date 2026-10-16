@@ -11,7 +11,7 @@ export function Work() {
     <Section
       id="work"
       title="Work"
-      lead="Four years across university IT, a trading platform and a central bank — support, infrastructure and, increasingly, the code itself."
+      lead="Since 2020, installing and maintaining the wireless links that get homes and businesses online — and keeping them that way when something breaks."
     >
       <motion.ol
         variants={stagger(0.1)}

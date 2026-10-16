@@ -12,7 +12,7 @@ export function About() {
     <Section
       id="about"
       title="About"
-      lead="I started in enterprise IT — four years keeping university systems and a trading floor running, administering Windows, Azure and Active Directory under SLA pressure."
+      lead="Hands-on with wireless networks since 2020, and currently extending that into network security through an MSc at the Open University of Cyprus."
     >
       <motion.div
         variants={stagger(0.1)}
@@ -21,10 +21,10 @@ export function About() {
         viewport={VIEWPORT}
       >
         <motion.p variants={fadeUp} className="mt-6 max-w-2xl text-base leading-relaxed text-muted">
-          Somewhere in there I stopped only supporting software and started building it. Today I work
-          across the stack — React and Next.js on the front, Node.js with PostgreSQL and MongoDB
-          behind it — and that support background is still the most useful thing I have: I know what
-          breaks in production because I used to be the one paged about it.
+          Day to day that means climbing on roofs to align antennas, terminating fiber and RJ45 runs,
+          and walking customers through a fix over the phone when a link drops. The CCNA training and
+          the security master&apos;s degree are the same instinct taken further — understanding not
+          just how a network works, but how to keep it safe.
         </motion.p>
 
         <div className="mt-16 grid gap-14 md:mt-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
@@ -59,14 +59,28 @@ export function About() {
                 <GraduationCap className="size-5 text-accent" aria-hidden="true" />
                 Education
               </h3>
-              <div className="mt-5 rounded-2xl border border-border bg-surface p-6">
-                <p className="font-medium">{EDUCATION.degree}</p>
-                <p className="mt-1 text-accent">{EDUCATION.school}</p>
-                <p className="mt-1 text-sm text-muted">{EDUCATION.faculty}</p>
-                <p className="mt-4 border-t border-border pt-4 text-sm leading-relaxed text-muted">
-                  <span className="font-medium text-foreground">Thesis — </span>
-                  {EDUCATION.thesis}
-                </p>
+              <div className="mt-5 space-y-5">
+                {EDUCATION.map((entry) => (
+                  <div
+                    key={`${entry.degree}-${entry.school}`}
+                    className="rounded-2xl border border-border bg-surface p-6"
+                  >
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                      <p className="font-medium">{entry.degree}</p>
+                      <p className="text-xs font-medium tracking-widest text-muted uppercase tabular-nums">
+                        {entry.period}
+                      </p>
+                    </div>
+                    <p className="mt-1 text-accent">{entry.school}</p>
+                    {entry.faculty && <p className="mt-1 text-sm text-muted">{entry.faculty}</p>}
+                    {entry.thesis && (
+                      <p className="mt-4 border-t border-border pt-4 text-sm leading-relaxed text-muted">
+                        <span className="font-medium text-foreground">Thesis — </span>
+                        {entry.thesis}
+                      </p>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
 

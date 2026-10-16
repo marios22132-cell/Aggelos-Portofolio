@@ -13,14 +13,14 @@ export function Projects() {
     <Section
       id="projects"
       title="Projects"
-      lead="Things I've shipped — client sites, full-stack products, and the experiment behind my thesis."
+      lead="The practical counterpart to the CCNA training and the security master's — building and evaluating an intrusion detection system."
     >
       <motion.ul
         variants={stagger(0.08)}
         initial="hidden"
         whileInView="visible"
         viewport={VIEWPORT}
-        className="mt-16 grid gap-6 md:mt-20 md:grid-cols-2"
+        className={`mt-16 grid gap-6 md:mt-20 ${PROJECTS.length > 1 ? "md:grid-cols-2" : "max-w-xl"}`}
       >
         {PROJECTS.map((project) => (
           <motion.li

@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowUpRight, Download, Mail } from "lucide-react";
+import { ArrowUpRight, Download, Mail, MapPin, Phone } from "lucide-react";
 
-import { GithubIcon } from "@/components/icons/github";
 import { Section } from "@/components/section";
 import { PROFILE } from "@/lib/content";
 import { VIEWPORT, fadeUp, stagger } from "@/lib/motion";
@@ -13,7 +12,7 @@ export function Contact() {
     <Section
       id="contact"
       title="Contact"
-      lead="I'm open to full-stack developer and IT roles. Email is the fastest way to reach me — the CV below has the full detail."
+      lead="I'm open to network technician and IT infrastructure roles. Email or phone is the fastest way to reach me — the CV below has the full detail."
     >
       <motion.div
         variants={stagger(0.1)}
@@ -36,13 +35,11 @@ export function Contact() {
 
         <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center gap-3">
           <a
-            href={PROFILE.github}
-            target="_blank"
-            rel="noreferrer"
+            href={`tel:${PROFILE.phone.replace(/\s+/g, "")}`}
             className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-medium transition-colors duration-200 hover:border-accent hover:text-accent"
           >
-            <GithubIcon className="size-4" />
-            GitHub
+            <Phone className="size-4" />
+            {PROFILE.phone}
           </a>
 
           <a
@@ -54,6 +51,14 @@ export function Contact() {
             Download CV
           </a>
         </motion.div>
+
+        <motion.p
+          variants={fadeUp}
+          className="mt-6 flex items-center gap-2 text-sm text-muted"
+        >
+          <MapPin className="size-4 shrink-0 text-accent" aria-hidden="true" />
+          Based in {PROFILE.location} — open to on-site and remote work.
+        </motion.p>
       </motion.div>
     </Section>
   );

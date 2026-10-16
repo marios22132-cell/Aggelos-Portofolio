@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowDown, Download, Mail } from "lucide-react";
+import { ArrowDown, Download, Mail, Phone } from "lucide-react";
 
-import { GithubIcon } from "@/components/icons/github";
 import { PROFILE } from "@/lib/content";
 import { DURATION, EASE_OUT, SPRING, fadeUp, stagger } from "@/lib/motion";
 
@@ -76,13 +75,11 @@ export function Hero() {
             </a>
 
             <a
-              href={PROFILE.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${PROFILE.name} on GitHub`}
+              href={`tel:${PROFILE.phone.replace(/\s+/g, "")}`}
+              aria-label={`Call ${PROFILE.name}`}
               className="grid size-11 cursor-pointer place-items-center rounded-full border border-border text-muted transition-colors duration-200 hover:border-accent hover:text-accent"
             >
-              <GithubIcon className="size-4" />
+              <Phone className="size-4" />
             </a>
           </motion.div>
         </motion.div>
